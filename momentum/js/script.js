@@ -69,31 +69,38 @@ function setLocalStorage() {
 
 // Слайдер для фоновых изображений
 
-// function getRandomInt(min, max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min)) + min; 
-// }
+const slidePrev = document.querySelector('.slide-prev')
+const slideNext = document.querySelector('.slide-next')
 
-// let bgNum = getRandomInt (1, 21)
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; 
+}
 
-// function setBg(getTimeOfDay, bgNum) {
-//   const url = "url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/'"
-//   const dayTime = getTimeOfDay
-//   const bgNumSt = bgNum.toString().padStart(2,'0')
-//   const jpeg = ".jpg"
-//   if (getTimeOfDay == 'Morning'){
-//     body.style.backgroundImage = `${url}${dayTime}${bgNumSt}${jpeg}`
-//   } else if (getTimeOfDay == 'Day') {
-//     body.style.backgroundImage = `${url}${dayTime}${bgNumSt}${jpeg}`
-//   } else if (getTimeOfDay == 'Evening') {
-//     body.style.backgroundImage = `${url}${dayTime}${bgNumSt}${jpeg}`
-//   } else if (getTimeOfDay == 'Night') {
-//     body.style.backgroundImage = `${url}${dayTime}${bgNumSt}${jpeg}`
-//   }
-// }
+let bgNum = getRandomInt (1, 21)
+console.log(bgNum)
+// slidePrev.addEventListener('click', setBg) 
+// slideNext.addEventListener('click', setBg)
+const body = document.querySelector('body')
 
-// setBg()
+function setBg() {
+  const url = "url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/"
+  const dayTime = greetingHours.toLowerCase()
+  const bgNumSt = bgNum.toString().padStart(2,'0')
+  const jpeg = ".jpg"
+  if (greetingHours == 'Morning'){
+    body.style.backgroundImage = `${url}${dayTime}/${bgNumSt}${jpeg}')`
+  } else if (greetingHours == 'Day') {
+    body.style.backgroundImage = `${url}${dayTime}/${bgNumSt}${jpeg}')`
+  } else if (greetingHours == 'Evening') {
+    body.style.backgroundImage = `${url}${dayTime}/${bgNumSt}${jpeg}')`
+  } else if (greetingHours == 'Night') {
+    body.style.backgroundImage = `${url}${dayTime}/${bgNumSt}${jpeg}')`
+  }
+}
+
+setBg()
 
 
 
@@ -107,7 +114,7 @@ const humidity = document.querySelector('.humidity')
 const city = document.querySelector('.city')
 
 async function getWeather() {  
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=fe506bc9921ff3a27bc0f347966cc48d&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=ru&appid=fe506bc9921ff3a27bc0f347966cc48d&units=metric`;
     const res = await fetch(url);
     const data = await res.json(); 
 
@@ -153,13 +160,13 @@ quotesRef.addEventListener('click',getQuotes)
 
 // Музыкальный плеер
 
-import playList from './playList.js';
+// import playList from './playList.js';
 
-const audio = new Audio();
-let isPlay = false,
-    playNum = 0
-const play = document.querySelector('.play')
-play.addEventListener('click',playAudio)
+// const audio = new Audio();
+// let isPlay = false,
+//     playNum = 0
+// const play = document.querySelector('.play')
+// play.addEventListener('click',playAudio)
 
 // const playNext = document.querySelector('.play-next')
 // playNext.addEventListener('click', playNextF)
@@ -173,22 +180,21 @@ play.addEventListener('click',playAudio)
 //   playNum--
 // }
 
-function playAudio() {
-  audio.src = '../assets/sounds/Aqua Caelestis.mp3';
-  audio.currentTime = 0;
-  audio.play();
+// function playAudio() {
+//   audio.src = '../assets/sounds/Aqua Caelestis.mp3';
+//   audio.currentTime = 0;
+//   audio.play();
   // audio.src = playList[playNum].src;
-  if (isPlay == false) {
-    isPlay = true
-  } else {
-    isPlay = false
-  }
-  isPlay = true
-  play.classList.toggle('pause')
-}
+  // if (isPlay == false) {
+  //   isPlay = true
+  // } else {
+  //   isPlay = false
+  // }
+//   play.classList.toggle('pause')
+// }
 
-const li = document.createElement('li');
-const playListContainer = document.querySelector('.play-list')
+// const li = document.createElement('li');
+// const playListContainer = document.querySelector('.play-list')
 
 // playList.forEach(el => {
 //   playListContainer.textContent = playListContainer.append(li)
